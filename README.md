@@ -30,8 +30,8 @@ When using Windows, admin privileges are required to build `darwin` (check the m
 Since not all your users have the right JVM available via classpath an OpenJDK 17 will be packed into the electron builds
 
 ## Documentation
-* [Configure electron Application](https://github.com/appreciated/maven-springboot-electron/tree/master/src/main/javascript)
-* [Configure the electron archs Part1](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/javascript/package.json)
+* [Configure electron Application](https://github.com/appreciated/maven-springboot-electron/tree/master/src/main/electron)
+* [Configure the electron archs Part1](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/electron/package.json)
 * [Configure the electron archs Part2](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L236-L257)
 
 * [Electron build Part1](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L198-L259)
@@ -42,12 +42,12 @@ Since not all your users have the right JVM available via classpath an OpenJDK 1
 When executing `mvn clean install -Pproduction` by default the `windows` (x64), `darwin` (x64) and `linux` (x64) will be built.
 
 The rest is currently not supported but adding those shouldn't be too hard but some changes will need to be made at the following files:
-* [Create 'scripts' for the other electron archs](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/javascript/package.json#L14-L17)
+* [Create 'scripts' for the other electron archs](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/electron/package.json#L14-L17)
 * [Add the new 'scripts' to the maven build](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L236-L257)
 * [Download the correct JDK](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L265-L294)
 * [Unpack the Downloaded JDK](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L296-L332)
 * [Inject downloaded JDK to the electron build](https://github.com/appreciated/maven-springboot-electron/blob/master/pom.xml#L359-L395)
-* [Use correct JDK at runtime](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/javascript/main.js#L108-L139)
+* [Use correct JDK at runtime](https://github.com/appreciated/maven-springboot-electron/blob/master/src/main/electron/main.js#L108-L139)
 
 
 ## Pull requests are welcome
