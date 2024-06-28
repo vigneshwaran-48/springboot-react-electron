@@ -156,6 +156,17 @@
                                     <workingDirectory>target/electron</workingDirectory>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>package electron windows</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <phase>package</phase>
+                                <configuration>
+                                    <arguments>run package-windows</arguments>
+                                    <workingDirectory>target/electron</workingDirectory>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
                     <!-- open-jdk download -->
@@ -196,6 +207,23 @@
                                         ${project.build.directory}/electron/application-linux-x64/resources/app/java
                                     </outputDirectory>
                                     <outputFileName>jre_linux.tar.gz</outputFileName>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>download-openjdk-jre-windows</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- When updating the URL also update the variable 'jreFolder' in src/main/electron/main.js -->
+                                    <url>
+                                        https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_windows_hotspot_2021-05-06-23-30.zip
+                                    </url>
+                                    <outputDirectory>
+                                        ${project.build.directory}/electron/application-win32-x64/resources/app/java
+                                    </outputDirectory>
+                                    <outputFileName>jre_windows.zip</outputFileName>
                                 </configuration>
                             </execution>
                         </executions>
